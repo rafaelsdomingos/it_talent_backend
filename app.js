@@ -6,6 +6,8 @@ import dotenv from 'dotenv';
 
 const app = express();
 
+var app_port = process.env.APP_PORT || 8080;
+
 app.use(bodyParser.json());
 app.use(cors());
 
@@ -59,6 +61,6 @@ app.use((err, req, res, next) => {
     });
 });
 
-app.listen(process.env.APP_PORT, () => {
-    console.log(`O servidor está executando na porta ${APP_PORT}`);
+app.listen(app_port, () => {
+    console.log(`O servidor está executando na porta `+app_port);
 });
